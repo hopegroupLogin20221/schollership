@@ -1,0 +1,14 @@
+.navbar-brand {
+    max-width: 150px;
+}
+
+.navbar-brand img {
+    width: 100%;
+}
+.footer-logo {
+    max-width: 250px;
+    margin: auto;
+}
+.footer-logo img{
+    width: 100%;
+}
