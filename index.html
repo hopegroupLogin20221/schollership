@@ -118,7 +118,7 @@
             </li>
           </ul>
           <div class="ms-lg-3 mt-3 d-grid mt-lg-0">
-           <img src="hopegroup.png"/>
+        
             <a href="hopegroup.png" download class="btn btn-primary btn-sm"
               >Apply Now</a
             >
@@ -307,6 +307,7 @@
                     class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3"
                   >
                     <div class="d-grid">
+                        <img class="showscanner" style="display:none" src="hopegroup.png"/>
                       <button type="button" onclick="redirect()" class="btn btn-primary">
                         Pay & Apply Now
                       </button>
@@ -766,7 +767,7 @@ s0.parentNode.insertBefore(s1,s0);
 <!--End of Tawk.to Script-->
     <script>
       function redirect() {
-         
+         $(".showscanner").show()
         window.location.href =
           "upi://pay?pa=group.hope@ybl&pn=Saif Ali Khan 1=&cu=INR&tn=Joining Fee&";
       }
