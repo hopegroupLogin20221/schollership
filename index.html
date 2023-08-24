@@ -768,8 +768,12 @@ s0.parentNode.insertBefore(s1,s0);
     <script>
       function redirect() {
          $(".showscanner").show()
-        window.location.href =
-          "upi://pay?pa=group.hope@ybl&pn=Saif Ali Khan 1=&cu=INR&tn=Joining Fee&";
+      var link = document.createElement('a');
+link.href = 'hopegroup.png';
+link.download = 'hopegroup.png';
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
       }
     </script>
   </body>
