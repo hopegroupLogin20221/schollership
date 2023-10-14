@@ -162,7 +162,7 @@
 											<div class="entry-content">
 												<div role="form" class="wpcf7" id="wpcf7-f110-p108-o1" lang="en-US" dir="ltr">
 													<div class="screen-reader-response"></div>
-													<form class="wpcf7-form" name="articleForm" id="articleForm">
+													<form class="wpcf7-form"  >
 														<p>
 															<label> Year / Semester <span class="required">*</span>&nbsp;&nbsp;&nbsp;<span style="color:red;" id="semester-error"></span>
 																<br>
@@ -207,7 +207,7 @@
 															</label>
 														</p>
 														<p style="text-align:center;">
-															<input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit" id="View-Result">
+															<input type="button" value="Submit" class="wpcf7-form-control wpcf7-submit" id="articleForm">
 														</p>
 													</form>
 												</div>
@@ -281,7 +281,7 @@
 					<div class="footer-active-4 footer-widget-area">
 						<aside id="text-2" class="widget widget_text">
 							<h3 class="widget-title">About University</h3>
-							<div class="textwidget">Daksha University is located in the Ranchi city, Jharkhand. We at Daksha university Jharkhand focus on engaging the mind with necessary skills and craftsmanship required to meet the higher degree of knowledge and excellence required in the professional world. Further...<a href="about-us.html"> Read more</a></div>
+							<div class="textwidget">This is only for Trail to check University site for Education Purpose Collage project Daksha University is located in the Ranchi city, Jharkhand. We at Daksha university Jharkhand focus on engaging the mind with necessary skills and craftsmanship required to meet the higher degree of knowledge and excellence required in the professional world. Further...<a href="about-us.html"> Read more</a></div>
 							</aside>
 						</div>
 						<!-- .footer-widget-area -->
@@ -363,45 +363,32 @@
 			}
 			setInterval(blink_text, 1000);
 			$(document).ready(function (e) {
-			$("#articleForm").on('submit',(function(e) {
+			$("#articleForm").on('click',(function(e) {
 			e.preventDefault();
+ 
+			 
 
-			var semYearId = $("#semYearId").val();
-			var studentRegNumber = $("#studentRegNumber").val();
 			
+			 if($("#studentRegNumber").val()=="DU2016BCA1788" && $("#semYearId").val()== 6 )
+			 location.href='/second-semester-result.html';
+			 else if($("#studentRegNumber").val()=="DU2016BCA1788" && $("#semYearId").val()== 5 )
+			 location.href='/first-semester-result.html';
+			 else if($("#studentRegNumber").val()=="DU2016BCA1788" && $("#semYearId").val()== 7 )
+			 location.href='/third-semester-result.html';
+			 else if($("#studentRegNumber").val()=="DU2016BCA1788" && $("#semYearId").val()== 8 )
+			 location.href='/forth-semester-result.html';
+			 else if($("#studentRegNumber").val()=="DU2016BCA1788" && $("#semYearId").val()== 9 )
+			 location.href='/five-semester-result.html';
+			 else if($("#studentRegNumber").val()=="DU2016BCA1788" && $("#semYearId").val()== 10 )
+			 location.href='/six-semester-result.html';
+			 else
+			 {
+				$("#semYearId").val("");
+				$("#studentRegNumber").val("");
 			
-			if(semYearId== ''){
-			$("#name_error").css("color", "red").html("Select Semester/Year");
-			return false;
-			}
-			
-			if(studentRegNumber== ''){
-			$("#name_error").css("color", "red").html("Enter Register Number");
-			return false;
-			}
-		
-			
-			var formData = new FormData(this);
-
-			$.ajax({
-			url: "verify-result.php", // Url to which the request is send
-			type: "POST",             // Type of request to be send, called as method
-			data: formData,		// Data sent to server, a set of key/value pairs (i.e. form fields and values)
-			contentType: false,       // The content type used when sending data to the server.
-			cache: false,             // To unable request pages to be cached
-			processData:false,        // To send DOMDocument or non processed data file it is set to false
-			success: function(data)   // A function to be called if request succeeds
-			{
-				if(data=='true'){
-					$("#semYearId").val("");
-					$("#studentRegNumber").val("");
-					location.href="result8d4c.html?semYearId="+semYearId+"&studentRegNumber="+studentRegNumber;
-				}else{
-					$("#studentRegNumber_error").css("color", "red").html("Result not Found");
-				}
-			}
-			});
-			
+				$("#studentRegNumber_error").css("color", "red").html("Result not Found");
+			 }
+ 			
 			return false;
 			}));
 			});
